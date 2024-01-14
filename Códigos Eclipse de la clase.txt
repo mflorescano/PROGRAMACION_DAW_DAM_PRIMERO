@@ -1,0 +1,44 @@
+﻿package poo1;
+public class Coche {
+//1.Defino sus características
+        int ruedas;
+        int largo;
+        int ancho;
+        int motor;//lo pongo en cc
+        int peso;
+        
+/*2. Creo un método constructor
+Es un método especial que se encarga de dar
+estado inicial al objeto
+Para construir un método constructor, debemos usar el
+MISMO NOMBRE que la clase*/
+        
+        public Coche() {
+        //Empezamos a construir el estado inicial del coche
+                ancho=250;
+                largo=400;
+                ruedas=4;
+                motor=200;
+                peso=1900;
+                
+        }
+        
+}
+
+
+
+
+//CONTENIDO DEL MAIN:
+
+
+package poo1;
+public class Uso_Coche {
+        public static void main(String[] args) {
+                //Esto es instanciar una clase
+                //Esto es crear un ejemplar de una clase
+                Coche Renault = new Coche();
+                
+                //Ahora quiero ver las características de este coche
+                System.out.println("Mi coche tiene " + Renault.ruedas + " ruedas.");
+        }
+}

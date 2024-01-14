@@ -1,0 +1,53 @@
+﻿Ejercicio 1: Crear una Clase "Lámpara"
+1.Definición de la Clase:
+    - Atributos: `tipo (String)`, `potencia (int)`, `color (String)`.
+    - Método Constructor: inicializa los atributos con valores predeterminados, por ejemplo, tipo="LED", potencia=60, color="Blanco".
+
+
+2.En el Main:
+    - Instanciar un objeto de la clase Lámpara.
+    - Imprimir los atributos del objeto creado.
+
+
+Ejercicio 2: Crear una Clase "Libro"
+1.Definición de la Clase:
+    - Atributos: `titulo (String)`, `autor (String)`, `numPaginas (int)`.
+    - Método Constructor: asigna valores predeterminados, por ejemplo, titulo="Sin nombre", autor="Desconocido", numPaginas=100.
+
+
+2.En el Main:
+    - Crear un objeto de la clase Libro.
+    - Mostrar en consola el título y autor del libro.
+
+
+Ejercicio 3: Crear una Clase "Bicicleta"
+1.Definición de la Clase:
+    - Atributos: `numRuedas (int)`, `tipo (String)`, `tamaño (int)`.
+    - Método Constructor: establecer valores iniciales, por ejemplo, numRuedas=2, tipo="Montaña", tamaño=26.
+
+
+2.En el Main:
+    - Instanciar una Bicicleta.
+    - Imprimir el tipo y tamaño de la bicicleta.
+
+
+Ejercicio 4: Crear una Clase "Reloj"
+1.Definición de la Clase:
+    - Atributos: `marca (String)`, `digital (boolean)`, `precio (double)`.
+    - Método Constructor: dar valores iniciales como marca="Casio", digital=true, precio=50.0.
+
+
+2.En el Main:
+    - Crear un objeto de tipo Reloj.
+    - Mostrar si el reloj es digital y su precio.
+
+
+Ejercicio 5: Crear una Clase "Celular"
+1.Definición de la Clase:
+    - Atributos: `modelo (String)`, `almacenamiento (int)`, `camaraMP (int)`.
+    - Método Constructor: inicializar con modelo="Genérico", almacenamiento=64, camaraMP=12.
+
+
+2.En el Main:
+    - Instanciar un objeto Celular.
+    - Imprimir el modelo y la capacidad de almacenamiento del celular.
