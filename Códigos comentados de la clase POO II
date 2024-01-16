@@ -1,0 +1,121 @@
+Coche.java
+ackage poo2GettersSetters;
+
+public class Coche {
+	/*
+	 * 4. Para evitar el problema de que yo pueda cambiar características comunes,
+	 * las voy a modificar con el PRIVATE PRIVATE ES UN MODIFICADOR DE ACCESO.
+	 */
+	private int ruedas;
+	private int largo;
+	private int ancho;
+	private int motor;
+	private int peso_plataforma;
+	// 11. Líneas 16, 17 y 18 son propiedades que cambian
+	String color;
+	int peso_total;
+	boolean asientos_cuero, climatizador;
+
+	/*
+	 * 5. Entonces, ¿Cómo accedo al motor, las ruedas o el largo si son privados?
+	 * Exacto, CON LOS MÉTODOS GETTERS Y SETTERS.
+	 */
+
+	/*
+	 * Constructor Es un método especial que se encarga de dar estado inicial al
+	 * objeto. Para construir un método constructor, debemos usar el MISMO NOMBRE
+	 * que la clase
+	 */
+
+	public Coche() {
+		// Empezamos a construir el estado inicial del coche
+		ancho = 250;
+		largo = 400;
+		ruedas = 4;
+		motor = 200;
+		peso_plataforma = 1900;
+
+	}
+
+	// 6. GETTER Y SETTERS
+	// Getter. Sintáxis:
+	// public tipo_de_dato nombre
+	public String dime_motor() {//GETTER
+		// 7. Nada más crearlo te va a dar un error porque espera
+		// un return del Getter
+		return "El motor del coche tiene " + motor + " caballos de potencia";
+		/*
+		 * 8. Importante: Puedo utilizar el atributo motor 
+		 * porque estoy en la misma clase, 
+		 * a pesar de que sea privado
+		 */
+	}
+	
+	/*12. Setters
+	 * public void nombre_método()
+	 * El void hace que no tenga return, es decir, 
+	 * que no devuelva dato(Lo desarrollaré luego).
+	 * */
+	public void establece_color() {//SETTER
+		color = "Rojo";
+	}
+	
+	public String dime_color() { //GETTER
+		return "El color de tu coche es " + color;
+	}
+	
+	/*
+	 * 1. AQUÍ, IMPORTANTE, también puedo ubicar un main, es decir, puedo optar por
+	 * no utilizar dos archivos y únicamente uno, como COCHE Y USO_COCHE o hacer
+	 * esto:
+	 * 
+	 * public static void main(String[] args) { //Esto es instanciar una clase
+	 * //Esto es crear un ejemplar de una clase Coche Renault = new Coche();
+	 * 
+	 * //Ahora quiero ver las características de este coche
+	 * System.out.println("Mi coche tiene " + Renault.ruedas + " ruedas."); }
+	 */
+
+}
+
+class ejemploFueraCoche {
+	/*
+	 * 2. como véis, también se puede poner otra clase debajo de la clase anterior
+	 * pero NO se recomienda. Se puede modular de dos formas, con un solo fichero y
+	 * todo metido o, lo mejor, hacer uno principal y hacer clases por separado
+	 */
+}
+
+
+Uso_Coche.java
+package poo2GettersSetters;
+
+import poo2GettersSetters.Coche;
+
+public class Uso_Coche {
+
+	public static void main(String[] args) {
+		// Esto es instanciar una clase
+		// Esto es crear un ejemplar de una clase
+		Coche Renault = new Coche();
+		// Renault.ruedas=2000;
+		// 3. Esto de arriba crea una incongruencia de datos
+		// ¿Cómo resuelvo este problema?
+		// Exacto, con un modificador de acceso(sé que lo sabías).
+		System.out.println(Renault.dime_motor());
+		/*9. Ahora, para acceder al motor del coche lo hago 
+		 * a partir del Getter.
+		 * Así evitas que alguien pueda poner motor = 2720837*/
+		
+		
+		/*10. Ahora trabajamos con variables
+		 * Ve a Coche.Java, al punto 11*/
+		
+		/*13. Volvemos a trabajar en el Main*/
+		Coche Subaru = new Coche();
+		Subaru.establece_color();
+		//Con esto pillo el color gracias al Getter y Setter
+		System.out.println(Subaru.dime_color());
+	}
+
+}
