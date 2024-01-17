@@ -1,5 +1,5 @@
 Coche.java
-ackage poo2GettersSetters;
+Package poo2GettersSetters;
 
 public class Coche {
 	/*
