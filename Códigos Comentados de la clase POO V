@@ -1,0 +1,170 @@
+PASO 1
+
+package poo5Parametros;
+
+import java.util.*;
+
+public class Uso_Empleado {
+
+	public static void main(String[] args) {
+	// 1. Vamos a trabajar en un único fichero
+
+	}
+
+}
+	
+class Empleado{
+	/*2. Al crear un único fichero, únicamente una de las clases
+	 * tiene que ser pública. Haz la prueba y crea otra clase:
+	 * public class prueba(){}. Te salen warnings*/
+	/*3. Vamos a crear un constructor y a pasarle parámetros. 
+	 * Antes no lo hacíamos pero se puede hacer perfectamente*/
+	public Empleado(String nom, double sue, 
+			int agno, int mes, int dia){
+	/*5 Con estas declaraciones igualamos que las variables de 
+	 * clase sean igual que las variables que entran en 
+	 * los parámetros del constructor. ¡Pícalas!*/
+		nombre=nom;
+		sueldo=sue;
+	/*6. Creamos una instancia de la clase GregorianCalendar para
+	 * trabajar con fechas y le pasamos parámetros*/
+		GregorianCalendar calendario =  
+				new GregorianCalendar(agno, mes-1, dia);
+	/*7. Ponemos mes-1 porque Enero es el mes 0.*/
+		alta_contrato=calendario.getTime();
+	/*8. Usamos por ahora getTime y Date pero no son recomendables.
+	 * De manera normal, getTime suele dar fallo con horas de
+	 * carácter internacional. En su lugar usaremos, por ejemplo 
+	 * LocalDate.of( 1985 , 1 , 1 )*/
+		
+	/*9. TEORÍA: Herencia. getTime hereda de Calendar, la cual es la
+	 * padre de GregorianCalendar. Siguiendo el ejemplo del coche, 
+	 * Coche es la clase padre de Peugeot y a su vez este es el padre
+	 * de la clase 206. Piensa en el modelo de abajo a arriba. De 
+	 * más específico a menos. */
+		
+	}
+	/*4. Para probar algo nuevo, vamos a crear las variables
+	 * de clase DEBAJO del constructor para que veas que 
+	 * funciona correctamente.
+	 * Al crear el DATE te dará fallo pues falta importar
+	 * el paquete. Ve a la línea 3 e impórtalo*/
+	
+	/*10. Vamos a crear los getters y setters*/
+	public String dameNombre(){//GETTER
+		return nombre;
+	}
+	
+	public double dameSueldo() {//GETTER
+		return sueldo;
+	}
+	public Date dameFechaContrato() {//GETTER
+		return alta_contrato;
+	}
+	/*11. Ahora creo un SETTER para el sueldo*/
+	public void subeSueldo(double porcentaje) {
+		double aumento= sueldo*porcentaje/100;
+		sueldo += aumento;
+	}
+	/*12. Ahora pica código para ver el sueldo de varios empleados.
+	 * Hazlo como quieras*/
+	private String nombre;
+	private double sueldo;
+	private Date alta_contrato;
+	
+}
+
+PASO 2 CON DATOS
+
+package poo6ConstruccionObjetos;
+
+import java.util.*;
+
+public class Uso_Empleado {
+
+	public static void main(String[] args) {
+
+/*1. Empieza instanciando de empleados nuevos.
+ * Recuerda meterle exactamente el número de argumentos
+ * exacto, ni más ni menos*/
+		Empleado [] misEmpleados = new Empleado[3];
+		misEmpleados[0]= new Empleado
+				("Jorge N.", 19500, 2000, 12, 30);
+		misEmpleados[1]= new Empleado
+				("Paco J.", 79500, 1980, 12, 28);
+		misEmpleados[2]= new Empleado
+				("Ana B.", 69500, 1995, 11, 18);
+		
+/*2. Súbeles el sueldo, con subeSueldo, ¡son currantes!*/		
+	/*for(int i=0; i<3; i++) {
+		misEmpleados[i].subeSueldo(5);
+	}
+	for(int i=0; i<3; i++) {
+		System.out.println("Nombre: " + misEmpleados[i].
+				dameNombre() + " Sueldo: " + 
+				misEmpleados[i].dameSueldo() + " Fecha de Alta: " + 
+				misEmpleados[i].dameFechaContrato());
+	}*/
+
+
+/*3. Comenta el código, los for anteriores y hazme for each*/
+/*4. : Es el operador que se utiliza en los bucles for each
+ * Separa la variable que representa el elemento actual 
+ * (Empleado e) de la colección que se está recorriendo 
+ * (misEmpleados)*/	
+	
+	for(Empleado e: misEmpleados) {
+		e.subeSueldo(5);
+	}
+	
+	for(Empleado e: misEmpleados)
+		System.out.println("Nombre: " + 
+				e.dameNombre() + " Sueldo: " + 
+				e.dameSueldo() + " Fecha de Alta: " + 
+				e.dameFechaContrato());
+	
+	
+	
+	}
+
+}
+	
+class Empleado{
+
+	public Empleado(String nom, double sue, 
+			int agno, int mes, int dia){
+
+		nombre=nom;
+		sueldo=sue;
+
+		GregorianCalendar calendario =  
+				new GregorianCalendar(agno, mes-1, dia);
+
+		alta_contrato=calendario.getTime();
+
+		
+
+	}
+
+	
+	public String dameNombre(){//GETTER
+		return nombre;
+	}
+	
+	public double dameSueldo() {//GETTER
+		return sueldo;
+	}
+	public Date dameFechaContrato() {//GETTER
+		return alta_contrato;
+	}
+
+	public void subeSueldo(double porcentaje) {
+		double aumento= sueldo*porcentaje/100;
+		sueldo += aumento;
+	}
+	
+	private String nombre;
+	private double sueldo;
+	private Date alta_contrato;
+	
+}
