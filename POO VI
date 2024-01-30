@@ -1,0 +1,74 @@
+package poo7Constantes;
+
+public class Pruebas {
+
+	/* 1. Crea la clase pruebas con un main */
+	public static void main(String[] args) {
+		// 7. Instancia dos trabajadores
+		// y muestra su info con devuelveDatos()
+		Empleados trabajador1 = new Empleados("Loli");
+		Empleados trabajador2 = new Empleados("Indalecio");
+
+		// 10. Imagina que haces esto de debajo. 
+		//¿Tiene sentido?
+		// trabajador1.cambiaNombre("Elver");
+
+		/*
+		 * 11. Spoiler: no, no lo tiene. 
+		 * Para ello, baja a private String nombre; e
+		 * intercálale un final delante del String. 
+		 * ¿Da error algo?
+		 */
+
+		System.out.println(trabajador1.devuelveDatos());
+		System.out.println(trabajador2.devuelveDatos());
+
+		// 8. Cambia a Loli a RRHH
+		trabajador1.cambiaSeccion("Recursos Humanos");
+
+		// 9. Baja y haz otro setter, el cambiaNombre
+	}
+
+}
+
+/* 2. Crea la clase empleado con nombre y sección */
+class Empleados {
+
+	private final String nombre;
+	private String seccion;
+	/* 3.Créame el constructor */
+
+	public Empleados(String nom) {
+		nombre = nom;
+		/*
+		 * 4. Queremos que los nuevos trabajadores 
+		 * pasen primero por admin y luego, si
+		 * lo hacen bien, vayan subiendo.
+		 */
+		seccion = "Administración";
+
+	}
+
+	/* 5. Ahora, dame los GETTERS y SETTERS */
+	public void cambiaSeccion(String seccion) {// SETTER
+		this.seccion = seccion;
+		// el que lleva el this es el campo de clase
+	}
+
+	public String devuelveDatos() {
+		return "El nombre es " + nombre + " y la sección es " 
+	+ seccion;
+		// 6. Vamos al main
+	}
+
+	public void cambiaNombre(String nombre) {// SETTER
+		this.nombre = nombre;
+	}
+	/*
+	 * 12. Evidentemente, da error esta parte. ¿Por qué?. 
+	 * Eclipse se queja de que algo que es una constante 
+	 * e inmutable, estás intentando cambiarlo. Para que
+	 * no dé este fallo, elimina cambiaNombre y su llamada
+	 */
+
+}
