@@ -1,0 +1,65 @@
+package herencia;
+/*
+ * Explicación paso a paso:
+
+Definición de la clase base Vehiculo: Esta clase tiene una propiedad protegida marca y un método mostrarMarca() para imprimir la marca del vehículo. El modificador protected hace que marca sea accesible dentro de su propia clase, en subclases, y en clases del mismo paquete.
+
+Constructor de Vehiculo: Asigna el valor de marca pasado al constructor.
+
+Definición de la subclase Auto: Usa la palabra clave extends para heredar de Vehiculo. Esto significa que Auto puede acceder a los campos y métodos de Vehiculo, a menos que sean privados.
+
+Constructor de Auto: Llama al constructor de la clase base Vehiculo usando super(marca), lo cual es necesario para inicializar la parte de Vehiculo de un Auto. Luego, inicializa su propia propiedad, numeroDePuertas.
+
+Método mostrarInfo en Auto: Este método llama a mostrarMarca() (heredado de Vehiculo) y luego imprime el número de puertas. Esto demuestra cómo una subclase puede utilizar métodos de la clase base.
+
+Clase TestHerencia con el método main: Crea una instancia de Auto y llama a mostrarInfo() para mostrar las propiedades del auto.
+
+ * */
+
+
+//Definición de la clase base Vehiculo
+class Vehiculo {
+ // Propiedad protegida que puede ser accedida por las clases en el mismo paquete y subclases
+ protected String marca;
+ 
+ // Constructor de la clase Vehiculo
+ public Vehiculo(String marca) {
+     this.marca = marca;
+ }
+ 
+ // Método para mostrar la marca del vehículo
+ public void mostrarMarca() {
+     System.out.println("Marca del vehículo: " + marca);
+ }
+}
+
+//Definición de la subclase Auto que extiende de Vehiculo
+class Auto extends Vehiculo {
+ // Propiedad específica de la subclase Auto
+ private int numeroDePuertas;
+ 
+ // Constructor de la subclase Auto
+ public Auto(String marca, int numeroDePuertas) {
+     // Llamada al constructor de la clase base (Vehiculo)
+     super(marca); // Con super se llama al constructor de la clase padre
+     this.numeroDePuertas = numeroDePuertas;
+ }
+ 
+ // Método para mostrar la información del auto
+ public void mostrarInfo() {
+     // Llamada al método mostrarMarca de la clase base
+     mostrarMarca();
+     System.out.println("Número de puertas: " + numeroDePuertas);
+ }
+}
+
+//Clase principal para ejecutar el programa
+public class TestHerencia {
+ public static void main(String[] args) {
+     // Creación de un objeto Auto
+     Auto miAuto = new Auto("Toyota", 4);
+     
+     // Mostrar información del auto
+     miAuto.mostrarInfo();
+ }
+}
